@@ -1,0 +1,21 @@
+
+
+<div class="container">
+    <h1>Posts - {{ (time$ | async ) }}</h1>
+    <button class="btn" (click)="buscar()">BUSCAR</button>
+    <div *ngIf="(posts$ | async) as posts; else loading">
+        <div class="card" *ngFor="let post of posts">
+            <div class="card-header">
+                {{ post.id }} - {{ post.title }}
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ post.body }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #loading>
+    <span>Carregando Posts...</span>
+</ng-template>

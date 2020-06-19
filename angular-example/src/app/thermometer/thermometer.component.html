@@ -1,0 +1,24 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">{{ (temperatura$ | async) }}</h1>
+    <p class="lead text-muted">TEMPERATURA</p>
+  </div>
+</section>
+
+<div class="row">
+    <div class="col">
+        <button id="rastreio" (click)="acompanhar()" >INICIAR RASTREIO</button>
+    </div>
+    <div class="col">
+        <button id="reset" (click)="reset()" >FINALIZAR</button>
+    </div>
+</div>
+
+<div class="chart-container" style="position: relative; height:40vh; width:70vw">
+    <canvas id="canvas">{{chart}}</canvas>
+</div>
+
+<!--     
+<div class="chart-container" style="position: relative; height:40vh; width:70vw" *ngFor="let chart of x; let i = index;">
+    <canvas [id]="'canvas'+i">{{charts[i]}}</canvas>
+</div> -->
